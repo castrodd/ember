@@ -7,13 +7,13 @@ export default Ember.Route.extend({
       sightedAt: new Date('2016-07-04')
     });
     record1.set('location', 'Paris');
-    
+
     let record2 = this.store.createRecord('sighting', {
       location: 'Philadelphia',
       sightedAt: new Date('2016-09-14')
     });
     let record3 = this.store.createRecord('sighting', {
-      location: 'Baltimore',
+      location: '',
       sightedAt: new Date('2016-02-01')
     });
 
