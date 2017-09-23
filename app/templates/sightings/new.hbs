@@ -2,19 +2,18 @@
 <form {{action 'create' on='submit'}}>
   <div class="form-group">
     <label for="name">Cryptid</label>
-    {{#x-select value=model.sighting.cryptid class="form-control"}}
-    {{#x-option}}Select Cryptid{{/x-option}}
-    {{#each model.cryptids as |cryptid|}}
-      {{#x-option value=cryptid}}{{cryptid.name}}{{/x-option}}
-    {{/each}}
+    {{#x-select  action="didMakeCryptidSelection" on="change" class="form-control" as |xs|}}
+      {{#xs.option}}Select Cryptid{{/xs.option}}
+      {{#each model.cryptids as |cryptid|}}
+        {{#xs.option value=cryptid}}{{cryptid.name}}{{/xs.option}}
+      {{/each}}
     {{/x-select}}
   </div>
   <div class="form-group">
     <label>Witnesses</label>
-    {{#x-select value=model.sighting.witnesses multiple=true class="form-control"}}
-      {{#x-option}}Select Witnesses{{/x-option}}
+    {{#x-select action="didMakeWitnessSelection" on="change" multiple=true class="form-control" as |xs|}}
       {{#each model.witnesses as |witness|}}
-        {{#x-option value=witness}}{{witness.fullName}}{{/x-option}}
+        {{#xs.option value=witness}}{{witness.fullName}}{{/xs.option}}
       {{/each}}
     {{/x-select}}
   </div>
